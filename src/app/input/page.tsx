@@ -121,6 +121,7 @@ export default function InputStudentPage({ params }: Props) {
       <footer className="text-center mt-20 text-gray-400 text-sm">
   © {new Date().getFullYear()} UDINUS | Sistem Penilaian OBE
 </footer>
+
     </div>
   );
 }
