@@ -1,5 +1,6 @@
 "use client";
 
+import { useParams } from "next/navigation";
 import { useState } from "react";
 import { Typography, TextField, Button, Paper, Table, TableHead, TableRow, TableCell, TableBody } from "@mui/material";
 import Link from "next/link";
@@ -12,11 +13,11 @@ const students: Record<string, string> = {
   "5": "Eka",
 };
 
-// Komponen nilai (bisa diubah sesuai kebutuhan)
 const gradeComponents = ["Tugas", "UTS", "UAS", "Proyek", "Kuis"];
 
-export default function InputStudentPage({ params }: { params: { id: string } }) {
-  const { id } = params;
+export default function InputStudentPage() {
+  const params = useParams();
+  const id = params?.id as string;
   const studentName = students[id] || "Mahasiswa Tidak Ditemukan";
 
   const [grades, setGrades] = useState<Record<string, number>>(
