@@ -37,6 +37,17 @@ Aplikasi prototype sistem penilaian OBE berbasis web. Dosen dapat mengatur bobot
 - Belum terhubung database atau backend.
 - Project ini merupakan prototype frontend untuk kebutuhan demo atau tes kerja.
 
+## 🤖 AI Collaboration Notes
+
+Project ini dikembangkan menggunakan bantuan ChatGPT untuk mempercepat pembuatan komponen frontend berbasis Next.js dan Tailwind CSS. AI digunakan untuk membantu:
+
+- Menyusun struktur halaman (dashboard, input nilai, dll)
+- Membuat validasi sederhana
+- Memberikan inspirasi desain tampilan profesional
+- Memberi penjelasan error dan debugging cepat
+
+Saya tetap memahami alur logika dan kode yang digunakan, serta dapat menjelaskannya saat sesi interview nanti.
+
 ---
 
 © 2025 Universitas Dian Nuswantoro | Prototype Sistem Penilaian OBE
