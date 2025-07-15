@@ -1,6 +1,6 @@
 "use client";
 
-import { Typography, Slider, Button, Box, Alert } from "@mui/material";
+import { Typography, Slider, Button, Alert } from "@mui/material";
 import { useState } from "react";
 import Link from "next/link";
 
