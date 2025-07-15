@@ -30,3 +30,13 @@ Aplikasi prototype sistem penilaian OBE berbasis web. Dosen dapat mengatur bobot
 3. Install dependencies: npm install
 4. Jalankan aplikasi: npm run dev
 5. Buka aplikasi di browser: http://localhost:3000
+
+## 📃 Catatan
+
+- Data disimpan sementara (dummy system).
+- Belum terhubung database atau backend.
+- Project ini merupakan prototype frontend untuk kebutuhan demo atau tes kerja.
+
+---
+
+© 2025 Universitas Dian Nuswantoro | Prototype Sistem Penilaian OBE
