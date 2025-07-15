@@ -4,13 +4,7 @@ import { useState } from "react";
 import { Typography, TextField, Button, Paper, Table, TableHead, TableRow, TableCell, TableBody } from "@mui/material";
 import Link from "next/link";
 
-interface Props {
-  params: {
-    id: string;
-  };
-}
-
-const students = {
+const students: Record<string, string> = {
   "1": "Ayu",
   "2": "Budi",
   "3": "Citra",
@@ -18,14 +12,13 @@ const students = {
   "5": "Eka",
 };
 
-// Mock komponen nilai yang biasanya dikonfigurasi
+// Komponen nilai (bisa diubah sesuai kebutuhan)
 const gradeComponents = ["Tugas", "UTS", "UAS", "Proyek", "Kuis"];
 
-export default function InputStudentPage({ params }: Props) {
+export default function InputStudentPage({ params }: { params: { id: string } }) {
   const { id } = params;
   const studentName = students[id] || "Mahasiswa Tidak Ditemukan";
 
-  // State nilai tiap komponen, default 0
   const [grades, setGrades] = useState<Record<string, number>>(
     gradeComponents.reduce((acc, comp) => ({ ...acc, [comp]: 0 }), {})
   );
@@ -37,21 +30,24 @@ export default function InputStudentPage({ params }: Props) {
     }
   };
 
-  // Hitung nilai total (bobot mock sama rata, misal 20% tiap komponen)
   const totalGrade = gradeComponents.reduce((sum, comp) => sum + (grades[comp] || 0) * 0.2, 0);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white to-blue-50 p-8">
       <Paper elevation={3} className="max-w-3xl mx-auto p-8 rounded-2xl shadow-lg bg-white">
         <Typography variant="h5" className="text-blue-800 font-bold mb-6">
-          Input Nilai untuk: {studentName}
+          ✍️ Input Nilai Mahasiswa
+        </Typography>
+
+        <Typography variant="subtitle1" className="mb-6 font-semibold text-blue-700">
+          Mahasiswa: {studentName}
         </Typography>
 
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell className="font-bold text-blue-700">Komponen Nilai</TableCell>
-              <TableCell className="font-bold text-blue-700">Nilai (0-100)</TableCell>
+              <TableCell><b>Komponen Nilai</b></TableCell>
+              <TableCell><b>Nilai (0-100)</b></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -70,8 +66,10 @@ export default function InputStudentPage({ params }: Props) {
               </TableRow>
             ))}
             <TableRow>
-              <TableCell className="font-bold">Total Nilai (estimasi)</TableCell>
-              <TableCell className="font-bold text-green-700">{totalGrade.toFixed(2)}</TableCell>
+              <TableCell><b>Total Nilai (Estimasi)</b></TableCell>
+              <TableCell className="font-bold text-green-700">
+                {totalGrade.toFixed(2)}
+              </TableCell>
             </TableRow>
           </TableBody>
         </Table>
@@ -88,10 +86,10 @@ export default function InputStudentPage({ params }: Props) {
           </Button>
         </div>
       </Paper>
-      <footer className="text-center mt-20 text-gray-400 text-sm">
-  © {new Date().getFullYear()} UDINUS | Sistem Penilaian OBE
-</footer>
 
+      <footer className="text-center mt-20 text-gray-400 text-sm">
+        © {new Date().getFullYear()} UDINUS | Sistem Penilaian OBE
+      </footer>
     </div>
   );
 }
