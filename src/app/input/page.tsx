@@ -15,26 +15,9 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 
-interface Props {
-  params: {
-    id: string;
-  };
-}
-
-const students = {
-  "1": "Ayu",
-  "2": "Budi",
-  "3": "Citra",
-  "4": "Deni",
-  "5": "Eka",
-};
-
 const gradeComponents = ["Tugas", "UTS", "UAS", "Proyek", "Kuis"];
 
-export default function InputStudentPage({ params }: Props) {
-  const { id } = params;
-  const studentName = students[id] || "Mahasiswa Tidak Ditemukan";
-
+export default function InputPage() {
   const [grades, setGrades] = useState<Record<string, number>>(
     gradeComponents.reduce((acc, comp) => ({ ...acc, [comp]: 0 }), {})
   );
@@ -49,12 +32,7 @@ export default function InputStudentPage({ params }: Props) {
   };
 
   const handleSave = () => {
-    // Simulasi simpan data (dummy)
-    // Kamu bisa tambah logika simpan ke store atau API di sini
-
     setShowSuccess(true);
-
-    // Sembunyikan alert setelah 3 detik
     setTimeout(() => setShowSuccess(false), 3000);
   };
 
@@ -67,14 +45,18 @@ export default function InputStudentPage({ params }: Props) {
     <div className="min-h-screen bg-gradient-to-br from-white to-blue-50 p-8">
       <Paper elevation={3} className="max-w-3xl mx-auto p-8 rounded-2xl shadow-lg bg-white">
         <Typography variant="h5" className="text-blue-800 font-bold mb-6">
-          Input Nilai untuk: {studentName}
+          ✍️ Input Nilai Mahasiswa
+        </Typography>
+
+        <Typography variant="subtitle1" className="mb-6 font-semibold text-blue-700">
+          Mahasiswa: - (Silakan input manual)
         </Typography>
 
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell className="font-bold text-blue-700">Komponen Nilai</TableCell>
-              <TableCell className="font-bold text-blue-700">Nilai (0-100)</TableCell>
+              <TableCell><b>Komponen Nilai</b></TableCell>
+              <TableCell><b>Nilai (0-100)</b></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -93,13 +75,14 @@ export default function InputStudentPage({ params }: Props) {
               </TableRow>
             ))}
             <TableRow>
-              <TableCell className="font-bold">Total Nilai (estimasi)</TableCell>
-              <TableCell className="font-bold text-green-700">{totalGrade.toFixed(2)}</TableCell>
+              <TableCell><b>Total Nilai (Estimasi)</b></TableCell>
+              <TableCell className="font-bold text-green-700">
+                {totalGrade.toFixed(2)}
+              </TableCell>
             </TableRow>
           </TableBody>
         </Table>
 
-        {/* Alert sukses */}
         {showSuccess && (
           <Alert severity="success" sx={{ mt: 4 }}>
             🎉 Nilai berhasil disimpan!
@@ -107,8 +90,8 @@ export default function InputStudentPage({ params }: Props) {
         )}
 
         <div className="mt-8 flex justify-between">
-          <Link href="/students" passHref legacyBehavior>
-            <Button component="a" variant="outlined" color="secondary">
+          <Link href="/students">
+            <Button variant="outlined" color="secondary">
               ← Kembali ke Daftar Mahasiswa
             </Button>
           </Link>
@@ -118,10 +101,10 @@ export default function InputStudentPage({ params }: Props) {
           </Button>
         </div>
       </Paper>
-      <footer className="text-center mt-20 text-gray-400 text-sm">
-  © {new Date().getFullYear()} UDINUS | Sistem Penilaian OBE
-</footer>
 
+      <footer className="text-center mt-20 text-gray-400 text-sm">
+        © {new Date().getFullYear()} UDINUS | Sistem Penilaian OBE
+      </footer>
     </div>
   );
 }
