@@ -39,7 +39,7 @@ Aplikasi prototype sistem penilaian OBE berbasis web. Dosen dapat mengatur bobot
 
 ## 🤖 AI Collaboration Notes
 
-Dalam proses pengembangan project ini, saya memanfaatkan ChatGPT secara internal untuk membantu percepatan pengembangan frontend berbasis Next.js dan Tailwind CSS. AI ini digunakan untuk:
+Dalam proses pengembangan project ini, saya memanfaatkan AI Tools secara internal untuk membantu percepatan pengembangan frontend berbasis Next.js dan Tailwind CSS. AI ini digunakan untuk:
 
 - Membantu menyusun struktur halaman (dashboard, input nilai, dll)
 - Memberi referensi dalam pembuatan validasi sederhana
