@@ -25,4 +25,8 @@ Aplikasi prototype sistem penilaian OBE berbasis web. Dosen dapat mengatur bobot
 
 ## 📦 Cara Jalankan di Lokal
 
-1. Clone repository:
+1. Clone repository: git clone https://github.com/lisnaamanda/sistem-penilaian-obe.git
+2. Masuk ke folder project: cd sistem-penilaian-obe
+3. Install dependencies: npm install
+4. Jalankan aplikasi: npm run dev
+5. Buka aplikasi di browser: http://localhost:3000
